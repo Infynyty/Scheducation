@@ -1,0 +1,20 @@
+.root {
+  -fx-background-color: #ffffff;
+}
+
+.pink-pane .tree-cell{
+    -fx-background-color: #d89cf6;
+}
+
+.button {
+  -fx-background-color: linear-gradient(#916dd5, #3e206d);
+}
+
+.button:hover {
+    -fx-background-color: #f0e3ff;
+}
+
+.button:pressed {
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+}
