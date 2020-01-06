@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -22,10 +23,17 @@ import java.time.format.DateTimeFormatter;
 
 public class MainViewController {
 
+    @FXML
+    public ScrollPane scrollPn;
 
     @FXML
     public void initialize() {
 
+        VBox calendar = new VBox();
+        for(int i = 0; i<50; i++) {
+            calendar.getChildren().add(new Button("Button " + i));
+        }
+        scrollPn.setContent(calendar);
         treeview.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 updateSelectedItem(newValue);
@@ -40,26 +48,11 @@ public class MainViewController {
     private TreeView<String> treeview;
 
     @FXML
-    DatePicker datePicker;
-
-    @FXML
-    private Button button;
-
-    @FXML
     private TreeItem dailyTasks;
 
     @FXML
     private TreeItem addTask;
 
-    @FXML
-    private Label testLabel;
-
-    @FXML
-    void test(ActionEvent event) {
-        dailyTasks.getChildren().clear();
-        dailyTasks.getChildren().add(new TreeItem<>("All tasks completed"));
-        dailyTasks.getChildren().add(new TreeItem<>("Task on: " + datePicker.getValue().format(DateTimeFormatter.ISO_DATE)));
-    }
     private void updateSelectedItem(Object newValue) throws IOException {
         System.out.println("Called Function");
         if(newValue.equals(addTask)) {
@@ -93,16 +86,4 @@ public class MainViewController {
         return dailyTasks;
     }
 
-    public DatePicker getDatePicker() {
-        return datePicker;
-    }
-
-    public Label getTestLabel() {
-        return testLabel;
-    }
-
-    public void updateLabel(String text) {
-        testLabel.setText(text);
-
-    }
 }
