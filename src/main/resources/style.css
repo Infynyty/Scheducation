@@ -2,16 +2,38 @@
   -fx-background-color: #ffffff;
 }
 
-.pink-pane .tree-cell{
+.dark-pink-pane {
+    -fx-background-color:  #3e206d;
+    -fx-effect: dropShadow( gaussian , #000000 , 20,0.1,0,0 );
+}
+
+.light-pink-pane {
+    -fx-background-color:  #f0e3ff;
+    -fx-effect: dropShadow( gaussian , #000000 , 20,0.1,0,0 );
+}
+
+.tile {
+    -fx-font-family: "Courier New";
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+}
+
+
+.tree-cell{
     -fx-background-color: #d89cf6;
 }
 
 .button {
-  -fx-background-color: linear-gradient(#916dd5, #3e206d);
+  -fx-background-color: #3e206d;
+  -fx-text-fill: #FFFFFF;
+      -fx-border-radius: 2px;
+      -fx-background-radius: 2px;
+      -fx-effect: dropShadow( gaussian , #000000 , 20, 0.07, 0, 5 );
 }
 
 .button:hover {
-    -fx-background-color: #f0e3ff;
+    -fx-background-color: #d89cf6;
+
 }
 
 .button:pressed {

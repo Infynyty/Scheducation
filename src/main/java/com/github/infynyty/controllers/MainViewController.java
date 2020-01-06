@@ -70,8 +70,11 @@ public class MainViewController {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Scheducation");
             stage.showAndWait();
-            dailyTasks.getChildren().add(new TreeItem<>(AddTaskController.text));
-            TreeItem treeItem = new TreeItem<>("Test");
+            if(AddTaskController.reset) {
+                AddTaskController.reset = false;
+                dailyTasks.getChildren().add(new TreeItem<>(AddTaskController.text));
+            }
+
 
         }
         TreeItem itemName = (TreeItem) newValue;

@@ -9,5 +9,8 @@
         <module name="Scheducation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Scheducation" target="1.11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

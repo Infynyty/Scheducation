@@ -18,7 +18,7 @@ import java.io.IOException;
 public class AddTaskController {
 
     public static String text;
-    public static boolean reset = true;
+    public static boolean reset = false;
 
     @FXML
     public ChoiceBox<Subject> subjectMenu;
@@ -46,14 +46,13 @@ public class AddTaskController {
 
     @FXML
     public void addTask(ActionEvent actionEvent) throws IOException {
-        reset = false;
         if((!nameField.getText().isBlank()) && subjectMenu.getValue() != null && importanceMenu.getValue() != null) {
             if(!Task.getTaskByName().containsKey(nameField.getText())) {
                 System.out.println("Event: Name: " + nameField.getText() + " Subject: " + subjectMenu.getValue() + " Importance: " + importanceMenu.getValue());
                 new Task(subjectMenu.getValue(), importanceMenu.getValue(), nameField.getText());
                 text = nameField.getText();
 
-                reset = false;
+                reset = true;
 
                 Stage stage = (Stage) ((Node)actionEvent.getSource()).getScene().getWindow();
                 stage.close();
